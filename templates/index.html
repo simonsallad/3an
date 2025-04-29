@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to 3an</title>
+    <link rel=" stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <h1 id='topBanner'>Welcome to 3an</h1>
+    <label id="playerName">Enter player name: </label>
+    <div id="playerDiv">
+        <input type="textbox" placeholder="Username" id="playerTextbox">
+        <button class='buttons' type="button" id="submitBtn">Add Player</button><br><br>
+        <ul id="playerList">
+            <p id="playerOne"></p>
+        </ul>
+    </div>
+
+    <label id="countLabel">Current round: 3</label><br>
+    <div id="btnContainer">
+        <button type="" id="resetBtn" class="buttons">New Game</button>
+        <button type="" id="increaseBtn" class="buttons">Next Round</button><br><br>
+    </div>
+
+    <label id="activePlayers">Active players:</label><br>
+    <div id="playerDiv">
+        <ul id="activePlayerList">
+            <!--            <p id="playerPara"></p> -->
+        </ul>
+    </div>
+
+
+    <script src="static/js/index.js"></script>
+</body>
+
+</html>
