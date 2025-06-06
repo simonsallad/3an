@@ -6,6 +6,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 5500;
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', (req,res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
