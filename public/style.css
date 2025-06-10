@@ -1,6 +1,7 @@
 body {
     background-color: #0E2148;
     color: #E3D095;
+    font-family: Inter, sans-serif;
 }
 #topBanner {
     font-size: 3em;
@@ -21,6 +22,7 @@ body {
     background-color: #483AA0;
     color: #E3D095;
     transition: background-color 0.25s;
+    border: none;
 }
 
 .buttons:hover {
@@ -28,14 +30,6 @@ body {
 }
 
 #btnContainer {
-    text-align: center;
-}
-
-#playerDiv {
-    text-align: center;
-}
-
-#playerDiv {
     text-align: center;
 }
 
