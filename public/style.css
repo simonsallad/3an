@@ -1,3 +1,7 @@
+body {
+    background-color: #0E2148;
+    color: #E3D095;
+}
 #topBanner {
     font-size: 3em;
     text-align: center;
@@ -12,15 +16,15 @@
 .buttons {
     padding: 10px 20px;
     font-size: 1, 5em;
-    color: whitesmoke;
     border-radius: 7px;
     cursor: pointer;
-    background-color: blue;
+    background-color: #483AA0;
+    color: #E3D095;
     transition: background-color 0.25s;
 }
 
 .buttons:hover {
-    background-color: darkblue;
+    background-color: #7965C1;
 }
 
 #btnContainer {
@@ -67,7 +71,6 @@
     margin-top: 20px;
 }
 
-/* Style individual player entries */
 .player-entry {
     display: flex;
     align-items: center;
@@ -78,7 +81,7 @@
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #483AA0;
 }
 
 /* Align text and inputs in player entries */
@@ -90,6 +93,7 @@
 .math-input {
     flex: 2;
     margin: 0 10px;
+    color: #E3D095;
 }
 
 .score-label {
@@ -100,3 +104,9 @@
 button {
     margin-left: 10px;
 }
+
+.textBox {
+    background-color: #483AA0;
+    color: #E3D095;
+}
+

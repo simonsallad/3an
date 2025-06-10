@@ -51,6 +51,7 @@ submitBtn.onclick = function() {
     mathTextbox.type = "text";
     mathTextbox.placeholder = "Enter score";
     mathTextbox.className = "math-input";
+    mathTextbox.className = "textBox";
 
     const scoreLabel = document.createElement("span");
     scoreLabel.textContent = "Score: 0";
