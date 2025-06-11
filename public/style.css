@@ -73,12 +73,11 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 50%;
-    /* Adjust width as needed */
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #483AA0;
+    background-color: #483FAF;
+    border: none;
 }
 
 /* Align text and inputs in player entries */
