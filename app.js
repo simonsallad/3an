@@ -16,7 +16,6 @@ app.get('/', (req,res) => {
 
 app.post('/', (req, res) => {
     console.log(`Body: ${req.body}`);
-    //console.log(`Headers: ${req.header}`);
     res.status(200);
 });
 

@@ -1,12 +1,22 @@
 const increaseBtn = document.getElementById("increaseBtn");
 const decreaseBtn = document.getElementById("decreaseBtn");
 const resetBtn = document.getElementById("resetBtn");
-const countLabel = document.getElementById("countLabel");
 const defaultRound = 3;
 const submitBtn = document.getElementById("submitBtn");
-
 let internalCounter = 3;
 let count = 3;
+
+// Start game button
+const startGame = () => {
+    const startGameBtn = document.querySelector('#start-btn');
+    startGameBtn.addEventListener('click', () => {
+        const countLabel = document.createElement('label');
+        countLabel.id = 'countLabel';
+        countLabel.textContent = `Current round: ${count}`;
+        document.querySelector('#start-game-container').after(countLabel);
+        startGameBtn.classList.toggle('hidden');
+    });
+}
 
 increaseBtn.onclick = function() {
     if (internalCounter < 14) {
@@ -31,6 +41,8 @@ resetBtn.onclick = function() {
     const activePlayerList = document.getElementById("activePlayerList");
     activePlayerList.innerHTML = ""; // Removes all child elements
 };
+
+
 
 // Submit button functionality
 submitBtn.onclick = function() {
@@ -96,3 +108,4 @@ submitBtn.onclick = function() {
 
 };
 
+startGame();

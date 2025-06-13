@@ -13,23 +13,23 @@
     <h2 id="underTitle">May the best player win</h2>
     <label id="playerName">Enter player name: </label>
     <div id="playerDiv">
-        <form method="POST" action="/" id="player-form">
+        <form method="" action="" id="player-form">
             <input type="text" placeholder="Username" id="playerTextbox" class="textBox" name="playerInput">
             <button class='buttons' type="button" id="submitBtn">Add Player</button><br><br>
+            <div id="start-game-container">
+                <input type="button" name="start-game" value="Start game" class="buttons" id="start-btn">
+            </div>
             <ul id="playerList">
                 <p id="playerOne"></p>
             </ul>
         </form>
     </div>
-
-    <label id="countLabel">Current round: 3</label><br>
     <div id="btnContainer">
         <button type="" id="resetBtn" class="buttons">New Game</button>
         <button type="" id="increaseBtn" class="buttons">Next Round</button><br><br>
     </div>
-
-    <label id="activePlayers">Active players:</label><br>
-    <div id="playerDiv">
+    <label id="activePlayers">Players:</label><br>
+    <div>
         <ul id="activePlayerList">
         </ul>
     </div>
