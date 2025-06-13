@@ -42,8 +42,6 @@ resetBtn.onclick = function() {
     activePlayerList.innerHTML = ""; // Removes all child elements
 };
 
-
-
 // Submit button functionality
 submitBtn.onclick = function() {
     const playerName = document.getElementById("playerTextbox").value.trim();
@@ -105,7 +103,6 @@ submitBtn.onclick = function() {
 
     // Clear the player textbox
     document.getElementById("playerTextbox").value = "";
-
 };
 
 startGame();
