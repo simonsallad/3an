@@ -21,7 +21,7 @@ increaseBtn.onclick = function() {
     }
 }
 
-resetBtn.onclick = function () {
+resetBtn.onclick = function() {
     // Reset the round counter
     count = defaultRound;
     internalCounter = 3;
