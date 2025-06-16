@@ -13,11 +13,12 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req,res) => {
     res.sendFile(__dirname + '/public/index.html');
+    res.sendStatus(200);
 });
 
 app.post('/', (req, res) => {
     console.log('Body:', req.body);
-    res.status(200);
+    res.sendStatus(200);
 });
 
 app.listen(port, () => {

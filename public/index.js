@@ -131,7 +131,7 @@ const saveGame = () => {
                 //'score': data[i].split('\n')[2]
             };
         }
-        console.log(gameStats);
+        //console.log(gameStats);
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
