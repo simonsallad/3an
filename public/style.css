@@ -111,12 +111,6 @@ button {
     border-radius: 7px;
 }
 
-#underTitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .hidden {
     display: none;
 }
