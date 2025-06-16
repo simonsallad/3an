@@ -121,16 +121,21 @@ const saveGame = () => {
         const playerStats = document.querySelectorAll('.player-entry');
         const data = Array.from(playerStats).map(playerStat => playerStat.innerText);
         for (let i = 0; i < data.length; i++) {
+
+            let cleanScore = data[i].split('\n')[2]
+            cleanScore = parseInt(cleanScore.split('Score:')[1]);
+            
             gameStats[`playerNumber${i}`] = {
                 'name': data[i].split('\n')[0],
-                'score': data[i].split('\n')[2]
+                'score': cleanScore
+                //'score': data[i].split('\n')[2]
             };
         }
         console.log(gameStats);
         fetch("/", {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({gameStats})
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ gameStats })
         });
     });
 }
