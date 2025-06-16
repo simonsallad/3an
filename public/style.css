@@ -92,7 +92,7 @@ body {
     color: #E3D095;
 }
 
-.score-label {
+*.score-label {
     flex: 1;
     text-align: right;
 }
@@ -121,5 +121,13 @@ button {
     display: none;
 }
 
+#playerList {
+    list-style: none;
+}
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 

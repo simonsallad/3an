@@ -8,6 +8,7 @@ const app = express();
 const port = 5500;
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req,res) => {
@@ -15,7 +16,7 @@ app.get('/', (req,res) => {
 });
 
 app.post('/', (req, res) => {
-    console.log(`Body: ${req.body}`);
+    console.log('Body:', req.body);
     res.status(200);
 });
 
