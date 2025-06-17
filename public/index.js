@@ -42,7 +42,7 @@ resetBtn.onclick = function() {
     activePlayerList.innerHTML = ""; // Removes all child elements
 };
 
-// Submit button functionality
+// Add player button functionality
 submitBtn.onclick = function() {
     const playerName = document.getElementById("playerTextbox").value.trim();
     if (!playerName) {
@@ -55,7 +55,10 @@ submitBtn.onclick = function() {
     playerContainer.className = "player-entry";
 
     const playerLabel = document.createElement("label");
-    playerLabel.textContent = playerName + ": ";
+    let playerIndex = 0;
+    playerLabel.id = playerIndex;
+    playerIndex++;
+    playerLabel.textContent = playerName;
 
     const mathTextbox = document.createElement("input");
     mathTextbox.type = "text";
@@ -105,4 +108,35 @@ submitBtn.onclick = function() {
     document.getElementById("playerTextbox").value = "";
 };
 
+// Save game button which will send player-stats to the backend
+const saveGame = () => {
+    let gameStats = {};
+    const saveGameBtn = document.querySelector('#save-btn');
+    saveGameBtn.addEventListener('click', () => {
+        // Overcomplicated piece of poop
+        // Need to get all the player info to send to backend
+        const playerStats = document.querySelectorAll('.player-entry');
+        const data = Array.from(playerStats).map(playerStat => playerStat.innerText);
+        for (let i = 0; i < data.length; i++) {
+
+            let cleanScore = data[i].split('\n')[2]
+            cleanScore = parseInt(cleanScore.split('Score:')[1]);
+            
+            gameStats[`playerNumber${i}`] = {
+                'name': data[i].split('\n')[0],
+                'score': cleanScore
+                //'score': data[i].split('\n')[2]
+            };
+        }
+        //console.log(gameStats);
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ gameStats })
+        });
+    });
+}
+
 startGame();
+saveGame();
+

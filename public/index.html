@@ -10,10 +10,10 @@
 
 <body>
     <h1 id='topBanner'>Let's play 3an</h1>
-    <h2 id="underTitle">May the best player win</h2>
+    <h2 class="container">May the best player win</h2>
     <label id="playerName">Enter player name: </label>
     <div id="playerDiv">
-        <form method="" action="" id="player-form">
+        <form method="post" action="/" id="player-form">
             <input type="text" placeholder="Username" id="playerTextbox" class="textBox" name="playerInput">
             <button class='buttons' type="button" id="submitBtn">Add Player</button><br><br>
             <div id="start-game-container">
@@ -25,13 +25,14 @@
         </form>
     </div>
     <div id="btnContainer">
-        <button type="" id="resetBtn" class="buttons">New Game</button>
-        <button type="" id="increaseBtn" class="buttons">Next Round</button><br><br>
+        <button type="button" id="resetBtn" class="buttons">New Game</button>
+        <button type="button" id="increaseBtn" class="buttons">Next Round</button><br><br>
+        <button type="button" id="save-btn" class="buttons">Save game</button><br><br>
     </div>
     <label id="activePlayers">Players:</label><br>
-    <div>
-        <ul id="activePlayerList">
-        </ul>
+    <div id="active-players-div">
+        <li id="activePlayerList">
+        </li>
     </div>
 
     <script src="index.js"></script>
