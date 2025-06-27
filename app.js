@@ -39,6 +39,18 @@ app.post('/', async (req, res) => {
         res.sendStatus(500);
     }
 });
+
+app.get('/get-score', async (req, res) => {
+    try {
+        const getScores = await pool.query(`SELECT score, name FROM scoreboard WHERE score = (SELECT MAX(score) FROM scoreboard)`)
+        console.log(getScores.rows[0].name); // Name of player
+        console.log(getScores.rows[0].score); // Highscore
+        res.status(200).sendFile(__dirname + '/public/index.html'); 
+    } catch (err) {
+        console.error(err);
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });

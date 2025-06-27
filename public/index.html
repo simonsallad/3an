@@ -11,6 +11,11 @@
 <body>
     <h1 id='topBanner'>Let's play 3an</h1>
     <h2 class="container">May the best player win</h2>
+    <form action="/get-score" method="get">
+        <div class="container">
+            <button type="submit" value="Get highscore" class="buttons" id="highScoreBtn">Get highscores</button>
+        </div>
+    </form>
     <label id="playerName">Enter player name: </label>
     <div id="playerDiv">
         <form method="post" action="/" id="player-form">
