@@ -43,8 +43,8 @@ app.post('/', async (req, res) => {
 app.get('/get-score', async (req, res) => {
     try {
         const getScores = await pool.query(`SELECT score, name FROM scoreboard WHERE score = (SELECT MAX(score) FROM scoreboard)`)
-        console.log(getScores.rows[0].name); // Name of player
-        console.log(getScores.rows[0].score); // Highscore
+        console.log(`Player with the highest score is: ${getScores.rows[0].name}`); // Name of player
+        console.log(`With a score of: ${getScores.rows[0].score}`); // Highscore
         res.status(200).sendFile(__dirname + '/public/index.html'); 
     } catch (err) {
         console.error(err);

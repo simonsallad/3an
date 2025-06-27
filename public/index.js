@@ -137,6 +137,23 @@ const saveGame = () => {
     });
 }
 
+// Get highscore button
+const getHighScore = () => {
+    document.querySelector('#highScoreBtn').addEventListener('click', () => {
+        const getScoreDiv = document.createElement('div');
+        getScoreDiv.className = 'container';
+
+        const scoreParagraph = document.createElement('p');
+        scoreParagraph.id = 'scoreBox';
+        scoreParagraph.text = 'Foo';
+
+
+        document.querySelector('#highScoreDiv').after(getScoreDiv);
+        getScoreDiv.document.appendChild(scoreParagraph);
+    });
+}
+
 startGame();
 saveGame();
+getHighScore();
 
