@@ -121,7 +121,7 @@ const saveGame = () => {
 
             let cleanScore = data[i].split('\n')[2]
             cleanScore = parseInt(cleanScore.split('Score:')[1]);
-            
+
             gameStats[`playerNumber${i}`] = {
                 'name': data[i].split('\n')[0],
                 'score': cleanScore
@@ -139,20 +139,28 @@ const saveGame = () => {
 
 // Get highscore button
 const getHighScore = () => {
-    document.querySelector('#highScoreBtn').addEventListener('click', () => {
-        const getScoreDiv = document.createElement('div');
-        getScoreDiv.className = 'container';
+    document.querySelector('#highScoreBtn').addEventListener('click', async () => {
+        try {
+            const response = await fetch('/get-score');
+            const data = await response.json();
 
-        const scoreParagraph = document.createElement('p');
-        scoreParagraph.id = 'scoreBox';
-        scoreParagraph.text = 'Foo';
+            const getScoreDiv = document.createElement('div');
+            getScoreDiv.className = 'container';
 
+            const scoreParagraph = document.createElement('p');
+            scoreParagraph.id = 'scoreBox';
+            scoreParagraph.textContent = `Best score: ${data.name} — with: ${data.score}`;
 
-        document.querySelector('#highScoreDiv').after(getScoreDiv);
-        getScoreDiv.document.appendChild(scoreParagraph);
+            getScoreDiv.appendChild(scoreParagraph);
+
+            const target = document.querySelector('#highScoreDiv');
+            target.parentNode.insertBefore(getScoreDiv, target.nextSibling);
+
+        } catch (err) {
+            console.error('Failed to fetch score:', err);
+        }
     });
-}
-
+};
 startGame();
 saveGame();
 getHighScore();

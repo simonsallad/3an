@@ -42,12 +42,23 @@ app.post('/', async (req, res) => {
 
 app.get('/get-score', async (req, res) => {
     try {
-        const getScores = await pool.query(`SELECT score, name FROM scoreboard WHERE score = (SELECT MAX(score) FROM scoreboard)`)
-        console.log(`Player with the highest score is: ${getScores.rows[0].name}`); // Name of player
-        console.log(`With a score of: ${getScores.rows[0].score}`); // Highscore
-        res.status(200).sendFile(__dirname + '/public/index.html'); 
+        const result = await pool.query(`
+            SELECT score, name 
+            FROM scoreboard 
+            WHERE score = (SELECT MIN(score) FROM scoreboard)
+            `)
+
+        const highscore = result.rows[0];
+        console.log(`Player ${highscore.name}, score ${highscore.score}`);
+
+        res.status(200).json(
+            {
+                name: highscore.name,
+                score: highscore.score
+            });
     } catch (err) {
         console.error(err);
+        res.status(500).json({ error: 'Internal server error' });
     }
 });
 
